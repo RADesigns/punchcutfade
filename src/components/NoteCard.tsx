@@ -11,7 +11,7 @@ export const NoteCard = ({
   onDelete,
 }: {
   note: Note;
-  onDelete: () => void;
+  onDelete?: () => void;
 }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(true);
 

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "~/server/api/trpc";
 
 export const noteRouter = createTRPCRouter({
   delete: protectedProcedure
@@ -35,5 +35,10 @@ export const noteRouter = createTRPCRouter({
           topicId: input.topicId,
         },
       });
+    }),
+
+    getRecent: protectedProcedure
+    .query(({ ctx }) => {
+      return ctx.prisma.note.findMany({ take: 5 });
     }),
 });
