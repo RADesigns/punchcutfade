@@ -2,9 +2,10 @@ import { useState } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-import { Header } from "~/components/Header";
+import LargeHeading from "~/components/ui/LargeHeading";
 //import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
 
@@ -53,7 +54,7 @@ const HomeContent: React.FC = () => {
     },
   }); */
 
-  const { data: notes } = api.note.getRecent.useQuery();
+  //const { data: notes } = api.note.getRecent.useQuery();
 
   /* const createNote = api.note.create.useMutation({
     onSuccess: () => {
@@ -68,52 +69,38 @@ const HomeContent: React.FC = () => {
   }); */
 
   return (
-    <div className="mx-5 mt-5 grid grid-cols-8 gap-12">
-      
-      <h2>Home Content</h2>
+    <div className='relative h-screen flex items-center justify-center overflow-x-hidden'>
+      <div className='container pt-32 max-w-7xl w-full mx-auto h-full'>
+        <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
+          <LargeHeading
+            size='lg'
+            className='three-d text-black dark:text-light-gold'>
+            Easily determine <br /> text similarity.
+          </LargeHeading>
 
+          <Paragraph className='max-w-xl lg:text-left'>
+            With the Text Similarity API, you can easily determine the
+            similarity between two pieces of text with a free{' '}
+            <Link
+              href='/login'
+              className='underline underline-offset-2 text-black dark:text-light-gold'>
+              API key
+            </Link>
+            .
+          </Paragraph>
 
-      {/* <div className="px-2">
-        <ul className="menu rounded-box w-56 bg-base-100 p-2">
-          {topics?.map((topic) => (
-            <li key={topic.id}>
-              <a
-                href="#"
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  setSelectedTopic(topic);
-                }}
-              >
-                {topic.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="divider"></div>
-        <input
-          type="text"
-          placeholder="New Topic"
-          className="input-bordered input input-sm w-full"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              createTopic.mutate({
-                title: e.currentTarget.value,
-              });
-              e.currentTarget.value = "";
-            }
-          }}
-        />
-      </div> */}
-      <div className="col-span-3">
-        {<div>
-          {notes?.map((note) => (
-            <div key={note.id} className="mt-5">
-              <NoteCard
-                note={note}
-              />
-            </div>
-          ))}
-        </div>}
+          <div className='relative w-full max-w-xl lg:max-w-3xl lg:left-1/2 aspect-square lg:absolute'>
+            <Image
+              priority
+              className='img-shadow '
+              quality={100}
+              style={{ objectFit: 'contain' }}
+              fill
+              src='/typewriter.png'
+              alt='typewriter'
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
