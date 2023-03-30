@@ -5,11 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-import LargeHeading from "~/components/ui/LargeHeading";
+import { Header } from "~/components/Header";
 //import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
 
 import { api, type RouterOutputs } from "~/utils/api";
+import LargeHeading from "~/components/ui/LargeHeading";
 
 const Home: NextPage = () => {
   //const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -72,13 +73,13 @@ const HomeContent: React.FC = () => {
     <div className='relative h-screen flex items-center justify-center overflow-x-hidden'>
       <div className='container pt-32 max-w-7xl w-full mx-auto h-full'>
         <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
-          <LargeHeading
-            size='lg'
+        <LargeHeading
+            size='sm'
             className='three-d text-black dark:text-light-gold'>
             Easily determine <br /> text similarity.
           </LargeHeading>
 
-          <Paragraph className='max-w-xl lg:text-left'>
+          {/* <Paragraph className='max-w-xl lg:text-left'>
             With the Text Similarity API, you can easily determine the
             similarity between two pieces of text with a free{' '}
             <Link
@@ -87,7 +88,7 @@ const HomeContent: React.FC = () => {
               API key
             </Link>
             .
-          </Paragraph>
+          </Paragraph> */}
 
           <div className='relative w-full max-w-xl lg:max-w-3xl lg:left-1/2 aspect-square lg:absolute'>
             <Image

@@ -1,12 +1,21 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 
+import { cn } from '~/utils/cn'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+import LargeHeading from '~/components/ui/LargeHeading'
+
 export const Header = () => {
   const { data: sessionData } = useSession();
 
   return (
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1 pl-5 text-3xl font-bold">
-        {sessionData?.user?.name ? `Notes for ${sessionData.user.name}` : ""}
+        <LargeHeading 
+            size='sm'
+            className='three-d text-black dark:text-light-gold'>
+          {sessionData?.user?.name ? `Notes for ${sessionData.user.name}` : ""}
+        </LargeHeading>
       </div>
       <div className="flex-none gap-2">
         <div className="dropdown-end dropdown">
