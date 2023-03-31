@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-import { Header } from "~/components/Header";
+import Navbar from "~/components/Navbar";
 //import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
 
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header />
+        <Navbar />
         <HomeContent />
       </main>
     </>
