@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navbar />
+        <Navbar title='PunchCutFade' />
         <HomeContent />
       </main>
     </>
@@ -35,7 +35,7 @@ export default Home;
 //type Topic = RouterOutputs["topic"]["getAll"][0];
 
 const HomeContent: React.FC = () => {
-  //const { data: sessionData } = useSession();
+  const { data: sessionData } = useSession();
   
   //const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
 
@@ -55,7 +55,7 @@ const HomeContent: React.FC = () => {
     },
   }); */
 
-  //const { data: notes } = api.note.getRecent.useQuery();
+  const { data: notes } = api.note.getRecent.useQuery();
 
   /* const createNote = api.note.create.useMutation({
     onSuccess: () => {
@@ -75,8 +75,8 @@ const HomeContent: React.FC = () => {
         <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
         <LargeHeading
             size='sm'
-            className='three-d text-black dark:text-light-gold'>
-            Easily determine <br /> text similarity.
+            className='three-d text-black dark:text-light-gold lg:absolute'>
+            The personal site for <br /> ryan m. anderson.
           </LargeHeading>
 
           {/* <Paragraph className='max-w-xl lg:text-left'>
@@ -89,18 +89,30 @@ const HomeContent: React.FC = () => {
             </Link>
             .
           </Paragraph> */}
-
-          <div className='relative w-full max-w-xl lg:max-w-3xl lg:left-1/2 aspect-square lg:absolute'>
-            <Image
-              priority
-              className='img-shadow '
-              quality={100}
-              style={{ objectFit: 'contain' }}
-              fill
-              src='/typewriter.png'
-              alt='typewriter'
-            />
-          </div>
+          {sessionData?.user ?
+          <div className='relative w-full max-w-lg lg:max-w-xg lg:left-1/2 aspect-square '>
+            {notes?.map((note) => (
+              <div key={note.id} className="mt-5">
+                <NoteCard
+                  note={note}
+                  
+                />
+              </div>
+            ))}
+            </div>
+            :
+            <div className='relative w-full max-w-lg lg:max-w-xg lg:left-1/2 aspect-square lg:absolute'>
+              <Image
+                priority
+                className='img-shadow '
+                quality={100}
+                style={{ objectFit: 'contain' }}
+                fill
+                src='/typewriter.png'
+                alt='typewriter'
+              /> 
+            </div>
+          }
         </div>
       </div>
     </div>

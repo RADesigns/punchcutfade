@@ -18,9 +18,9 @@
     background-color: white;
   }
   
-  .dark .three-d {
+  /* .dark .three-d {
     text-shadow: 0px 5px 0px #533519;
-  }
+  } */
   .three-d {
     text-shadow: none;
   }

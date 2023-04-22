@@ -8,7 +8,12 @@ import { Button, buttonVariants} from '~/components/ui/Button'
 import { Link } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
-const Navbar = () => {
+type NavbarProps = {
+  title?: string
+}
+
+
+const Navbar = ({title} : NavbarProps) => {
   const { data: sessionData } = useSession();
 
   return (
@@ -17,49 +22,50 @@ const Navbar = () => {
         <LargeHeading 
             size='sm'
             className='three-d text-black dark:text-light-gold'>
-          {sessionData?.user?.name ? `Notes for ${sessionData.user.name}` : ""}
+          {sessionData?.user?.name ? `Notes for ${sessionData.user.name}` : title}
         </LargeHeading>
-      </div>
+      
       {/* <Link href='/' className={buttonVariants({ variant: 'link' })}>
           Text Similarity v2.0
         </Link> */}
 
-        <div className='md:hidden'>
+        {/* <div className='md:hidden'>
           <ThemeToggle />
-        </div>
+        </div> */}
 
-        <ThemeToggle />
         
-        {/* <div className='hidden md:flex gap-4'>
-          <ThemeToggle />
-          <Link
+
+        <div className='flex gap-4'>
+            <ThemeToggle />
+         {/* <Link
             href='/documentation'
             className={buttonVariants({ variant: 'ghost' })}>
             Documentation
-          </Link> */}
-      <div className="flex-none gap-2">
-        <div className="dropdown-end dropdown">
-          {sessionData?.user ? (
-            <label
-              tabIndex={0}
-              className="btn-ghost btn-circle avatar btn"
-              onClick={() => void signOut()}
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  src={sessionData?.user?.image ?? ""}
-                  alt={sessionData?.user?.name ?? ""}
-                />
-              </div>
-            </label>
-          ) : (
-            <Button
-              className="btn-ghost rounded-btn btn"
-              onClick={() => void signIn()}
-            >
-              Sign in
-            </Button>
-          )}
+          </Link>
+        </div> */}
+          <div className="dropdown-end dropdown">
+            {sessionData?.user ? (
+              <label
+                tabIndex={0}
+                className="btn-ghost btn-circle avatar btn"
+                onClick={() => void signOut()}
+              >
+                <div className="w-10 rounded-full dark:bg-white">
+                  <img
+                    src={sessionData?.user?.image ?? ""}
+                    alt={sessionData?.user?.name ?? ""}
+                  />
+                </div>
+              </label>
+            ) : (
+              <Button
+                className="btn-ghost rounded-btn btn"
+                onClick={() => void signIn()}
+              >
+                Sign in
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>
