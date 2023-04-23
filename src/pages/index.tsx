@@ -76,7 +76,7 @@ const HomeContent: React.FC = () => {
         <LargeHeading
             size='sm'
             className='three-d text-black dark:text-light-gold lg:absolute'>
-            The personal site for <br /> ryan m. anderson.
+            The personal site for <br /> ryan m anderson
           </LargeHeading>
 
           {/* <Paragraph className='max-w-xl lg:text-left'>
