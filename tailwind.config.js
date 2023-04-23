@@ -2,6 +2,7 @@
 const { colors } = require('tailwindcss/colors');
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
+
 const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: ['class'],
