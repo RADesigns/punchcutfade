@@ -1,10 +1,10 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 
-import { cn } from '~/utils/cn'
+import { cn } from '@/utils/cn'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import LargeHeading from '~/components/ui/LargeHeading'
-import { Button, buttonVariants} from '~/components/ui/Button'
+import LargeHeading from '@/components/ui/LargeHeading'
+import { Button, buttonVariants} from '@/components/ui/Button'
 import { Link } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 

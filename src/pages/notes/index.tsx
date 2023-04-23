@@ -5,10 +5,10 @@ import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 //import { Navbar } from "~/components/Navbar";
-import { NoteEditor } from "~/components/NoteEditor";
-import { NoteCard } from "~/components/NoteCard";
+import { NoteEditor } from "@/components/NoteEditor";
+import { NoteCard } from "@/components/NoteCard";
 
-import { api, type RouterOutputs } from "~/utils/api";
+import { api, type RouterOutputs } from "@/utils/api";
 
 type Topic = RouterOutputs["topic"]["getAll"][0];
 

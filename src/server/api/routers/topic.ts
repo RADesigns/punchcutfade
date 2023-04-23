@@ -3,7 +3,7 @@ import { z } from "zod";
 import {
   createTRPCRouter,
   protectedProcedure,
-} from "~/server/api/trpc";
+} from "@/server/api/trpc";
 
 export const topicRouter = createTRPCRouter({
     getAll: protectedProcedure.query(({ ctx }) => {
