@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'BrunoAce';
+  src: url('../../public/fonts/Bruno\ Ace/BrunoAce-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  
+
+  nav h1 {
+    font-family: 'BrunoAce'
+  }
+
 .dark .img-shadow {
     width: 250px;
     -webkit-filter: drop-shadow(5px 10px 5px #090a01e2);

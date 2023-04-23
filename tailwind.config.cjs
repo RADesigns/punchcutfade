@@ -16,7 +16,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
+        sans: [fontFamily.sans],
       },
       colors: {
         ...colors,

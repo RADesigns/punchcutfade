@@ -5,12 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-import Navbar from "~/components/Navbar";
+import Navbar from "@/components/Navbar";
 //import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
 
-import { api, type RouterOutputs } from "~/utils/api";
-import LargeHeading from "~/components/ui/LargeHeading";
+import { api, type RouterOutputs } from "@/utils/api";
+import LargeHeading from "@/components/ui/LargeHeading";
 
 const Home: NextPage = () => {
   //const hello = api.example.hello.useQuery({ text: "from tRPC" });
