@@ -35,7 +35,7 @@ export default Home;
 //type Topic = RouterOutputs["topic"]["getAll"][0];
 
 const HomeContent: React.FC = () => {
-  const { data: sessionData } = useSession();
+  //const { data: sessionData } = useSession();
   
   //const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
 
@@ -55,7 +55,7 @@ const HomeContent: React.FC = () => {
     },
   }); */
 
-  const { data: notes } = api.note.getRecent.useQuery();
+  //const { data: notes } = api.note.getRecent.useQuery();
 
   /* const createNote = api.note.create.useMutation({
     onSuccess: () => {
@@ -89,7 +89,7 @@ const HomeContent: React.FC = () => {
             </Link>
             .
           </Paragraph> */}
-          {sessionData?.user ?
+          {/* {sessionData?.user ?
           <div className='relative w-full max-w-lg lg:max-w-xg lg:left-1/2 aspect-square '>
             {notes?.map((note) => (
               <div key={note.id} className="mt-5">
@@ -112,7 +112,7 @@ const HomeContent: React.FC = () => {
                 alt='typewriter'
               /> 
             </div>
-          }
+          } */}
         </div>
       </div>
     </div>
