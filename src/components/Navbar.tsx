@@ -21,7 +21,7 @@ const Navbar = ({title} : NavbarProps) => {
       <div className='container max-w-7xl mx-auto w-full flex justify-between items-center'>
         <LargeHeading 
             size='sm'
-            className='three-d text-black dark:text-light-gold'>
+            className='three-d'>
           {sessionData?.user?.name ? `Notes for ${sessionData.user.name}` : title}
         </LargeHeading>
       

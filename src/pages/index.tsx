@@ -75,7 +75,7 @@ const HomeContent: React.FC = () => {
         <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
         <LargeHeading
             size='sm'
-            className='three-d text-black dark:text-light-gold lg:absolute'>
+            className='three-d lg:absolute'>
             The personal site for <br /> ryan m anderson
           </LargeHeading>
 
