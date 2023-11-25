@@ -3,7 +3,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 import Navbar from "@/components/Navbar";
 //import { NoteEditor } from "../components/NoteEditor";
@@ -32,14 +32,14 @@ const Home: NextPage = () => {
 
 export default Home;
 
-//type Topic = RouterOutputs["topic"]["getAll"][0];
+type Topic = RouterOutputs["topic"]["getAll"][0];
 
 const HomeContent: React.FC = () => {
-  //const { data: sessionData } = useSession();
+  const { data: sessionData } = useSession();
   
-  //const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
+  const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
 
-  /* const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
+  const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
     undefined, // no input
     {
       enabled: sessionData?.user !== undefined,
@@ -47,7 +47,7 @@ const HomeContent: React.FC = () => {
         setSelectedTopic(selectedTopic ?? data[0] ?? null);
       },
     }
-  ); */
+  );
 
   /* const createTopic = api.topic.create.useMutation({
     onSuccess: () => {
@@ -55,7 +55,7 @@ const HomeContent: React.FC = () => {
     },
   }); */
 
-  //const { data: notes } = api.note.getRecent.useQuery();
+  const { data: recentNotes } = api.note.getRecent.useQuery();
 
   /* const createNote = api.note.create.useMutation({
     onSuccess: () => {
@@ -71,12 +71,12 @@ const HomeContent: React.FC = () => {
 
   return (
     <div className='relative h-screen flex items-center justify-center overflow-x-hidden'>
-      <div className='container pt-32 max-w-7xl w-full mx-auto h-full'>
-        <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
-        <LargeHeading
+      <div className='container pt-32 px-40 max-w-7xl w-full mx-auto h-full'>
+        <div className='h-full '>
+          <LargeHeading
             size='sm'
-            className='three-d lg:absolute'>
-            The personal site for <br /> ryan m anderson
+            className='three-d '>
+            {sessionData ? "Recent notes" : "Something Goes Here"}
           </LargeHeading>
 
           {/* <Paragraph className='max-w-xl lg:text-left'>
@@ -89,9 +89,9 @@ const HomeContent: React.FC = () => {
             </Link>
             .
           </Paragraph> */}
-          {/* {sessionData?.user ?
-          <div className='relative w-full max-w-lg lg:max-w-xg lg:left-1/2 aspect-square '>
-            {notes?.map((note) => (
+          {sessionData?.user ?
+          <div className=' w-full '>
+            {recentNotes?.map((note) => (
               <div key={note.id} className="mt-5">
                 <NoteCard
                   note={note}
@@ -112,7 +112,7 @@ const HomeContent: React.FC = () => {
                 alt='typewriter'
               /> 
             </div>
-          } */}
+          }
         </div>
       </div>
     </div>

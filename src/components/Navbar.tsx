@@ -35,15 +35,15 @@ const Navbar = ({title} : NavbarProps) => {
 
         
 
-        <div className='flex gap-4'>
+        <div className='flex gap-4 ml-auto'>
             <ThemeToggle />
          {/* <Link
-            href='/documentation'
+            href='/notes'
             className={buttonVariants({ variant: 'ghost' })}>
-            Documentation
-          </Link>
-        </div> */}
-          <div className="dropdown-end dropdown">
+            Notes
+          </Link> */}
+        </div>
+          <div className="dropdown-end dropdown ml-6">
             {sessionData?.user ? (
               <label
                 tabIndex={0}
@@ -67,7 +67,6 @@ const Navbar = ({title} : NavbarProps) => {
             )}
           </div>
         </div>
-      </div>
     </nav>
   );
 };
