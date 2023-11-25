@@ -3,6 +3,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { redirect } from 'next/navigation';
 
 //import { Navbar } from "~/components/Navbar";
 import { NoteEditor } from "@/components/NoteEditor";
@@ -13,7 +14,12 @@ import { api, type RouterOutputs } from "@/utils/api";
 type Topic = RouterOutputs["topic"]["getAll"][0];
 
 const NoteTaker: React.FC = () => {
-  const { data: sessionData } = useSession();
+  const { data: sessionData } = useSession({required: true}); 
+
+  /* if(!sessionData || sessionData === null) { 
+      void redirect('/api/auth/signIn')
+  } */
+  
   
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
 
@@ -55,9 +61,9 @@ const NoteTaker: React.FC = () => {
   });
 
   return (
-    <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
+    <div className="mx-5 grid grid-cols-4 gap-2 py-24">
       <div className="px-2">
-        <ul className="menu rounded-box w-56 bg-base-100 p-2">
+        <ul className="menu rounded-box w-56 bg-base-100 p-2 dark:text-slate-900 font-bold">
           {topics?.map((topic) => (
             <li key={topic.id}>
               <a

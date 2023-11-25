@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes'
 import { api } from "@/utils/api";
 
 import "@/styles/globals.css";
+import MainLayout from "@/components/MainLayout";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -14,7 +15,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
       </SessionProvider>
     </ThemeProvider>
   );
